@@ -1,0 +1,24 @@
+### D = S
+# D|<TAS.SEQ>|<ACTIVITY.DATETIME>|<TRADABLE.STATUS>|<MARKET.PHASE>|<EXCH.MESSAGE.TIMESTAMP>|<STATUS.START.DATE>
+# S|1        |1599083100.6742    |                 |2             |214500156950395         |20200902
+
+### D = H
+#D|<ENUM.SRC.ID>|<SYMBOL.TICKER>|<CURRENCY.STRING>|<ISIN>|<SEDOL>|<CUSIP>|<DISPLAY.PRECISION>|
+#H|686          |F2:0A\U2001    |USD              |      |       |       |9                  |
+
+#<TRADE.OPEN>|<OPEN_INT>|<YEST.TRADE.CLOSE>|<YEST.TRADE.VOL>|<SETTLE.DATE>|<SETTLE.PRICE>|<EXPIRATION.DATE>|
+#            |          |246.491           |                |1600171200   |246.491       |      20201002   |
+
+#<FRONT.MONTH.CONTRACT>|<ENUM.INSTR.TYPE>|<LOT.SIZE>|<CONTRACT.SIZE>|<VARIABLE.TICK.SIZE>|
+#                      |1024             |          |100            |0.001               |
+
+
+#<MKT.SEGMENT>|<SETTLE.IND>|<SETTLEMENT.CURRENCY>
+#80           |          67|
+
+### D = Q
+
+# Q|<TAS.SEQ>|<RNR.END.EXCH.SEQ>|<ACTIVITY.DATETIME>|<BID.PRICE>|<BID.SIZE>|<ASK.PRICE>|<ASK.SIZE>|<QUOTE.COND_1>|
+# Q|190581   |                  |1598965711.7042    |46.78      |         8|46.82      |         4|              |
+<PART.CODE>|<QUOTE.DATETIME>|<EXCH.MESSAGE.TIMESTAMP>|<IMPLIED.BID.SIZE>|<IMPLIED.ASK.SIZE>|<RFQ.SIZE>|<RFQ.SIDE>|<END.UPDATE.FLAG>
+           |1598965711.7042 |         130831688845343|                  |                 4|          |          |
