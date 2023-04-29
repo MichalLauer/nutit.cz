@@ -1,3 +1,2 @@
-temp = "E:\_temp"
-tmp = "E:\_temp"
+VROOM_TEMP_PATH = "E:\_temp"
 VROOM_CONNECTION_SIZE = 1000000000
