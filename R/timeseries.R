@@ -1,4 +1,10 @@
-timeseries <- function(ticker, from, to = from, row) {
+#' Get a time series for a given date range, ticker and row.
+#'
+#' @param from First date
+#' @param to Last date. If not provided, only first date is extracted
+#' @param ticker - Ticker to get. If NULL, no filtering based on ticker is performed
+#' @param row - Row ID to filter on. If NULL, no filtering based on row is performed
+timeseries <- function(from, to = from, ticker = NULL, row = NULL) {
   # Transform dates
   pfrom <- strptime(from, format = "%Y-%m-%d")
   pto   <- strptime(to, format = "%Y-%m-%d")
@@ -6,7 +12,7 @@ timeseries <- function(ticker, from, to = from, row) {
 
   # Read data for given days and row; join them together
   data <-
-    furrr::future_map(.x = dates, .f = \(x) read_day(x, row)) |>
+    furrr::future_map(.x = dates, .f = \(x) read_day(x, ticker, row)) |>
     purrr::list_rbind()
 
   # Clean the data based on the row defined
@@ -21,3 +27,4 @@ timeseries <- function(ticker, from, to = from, row) {
 
   return(data_clean)
 }
+

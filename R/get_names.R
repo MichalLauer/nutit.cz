@@ -1,3 +1,6 @@
+#' Returns column names based on the selected row.
+#'
+#' @param row - Row ID
 get_names <- function(row) {
   def <- list(
     # Transaction

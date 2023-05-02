@@ -1,18 +1,20 @@
-read_file <- function(file, row) {
-  # Personal restrictions
-  nm <- 100
-  base_skip <- 1000000
+#' Read a single file using vroom::vroom. Note that the file is not read, but
+#' cached using Altrep (https://svn.r-project.org/R/branches/ALTREP/ALTREP.html).
+#'
+#' @param file - File path to read
+read_file <- function(file) {
+  # Personal restrictions for my slow computer. For production, use:
+  # - nm <- Inf
+  # - base_skip <- 0
+  nm <- 1000
+  base_skip <- 0
   # Read file
-  raw_data <- vroom::vroom(file = file, delim = "|", col_names = F,
-                           skip = base_skip, n_max = nm, comment = "#",
-                           show_col_types = F)
-
-  # Subset for specific row
-  data <- subset(raw_data, X1 == row)
-
-  # Rename data set
-  cols <- get_names(row)
-  colnames(data) <- cols
+  # Suppress non-important warning
+  data <- suppressWarnings(
+    vroom::vroom(file = file, delim = "|", col_names = F,
+                 skip = base_skip, n_max = nm, comment = "#",
+                 show_col_types = F)
+  )
 
   return(data)
 }

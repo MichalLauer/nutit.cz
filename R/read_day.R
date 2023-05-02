@@ -1,4 +1,12 @@
-read_day <- function(date, row, root_dir = "E:") {
+#' Reads a single file (e.g. day).
+#'
+#' @param date - Date to read
+#' @param ticker - Ticker to get. If NULL, no filtering based on ticker is performed
+#' @param row - Row ID to filter on. If NULL, no filtering based on row is performed
+#' @param root_dir - Root directory which contains the main folder structure.
+#'        Default value E: can be represented as, for example:
+#'         - E:\2020\09\01\S686\STD\PLUSTICK_PLUSTICK_FUTURES_686_20200901.txt.gz
+read_day <- function(date, ticker, row, root_dir = "E:") {
   # File to read
   file_name <- paste0("PLUSTICK_FUTURES_686_", format(date, "%Y%m%d"), ".txt.gz")
   # Build path
@@ -10,10 +18,26 @@ read_day <- function(date, row, root_dir = "E:") {
                 "STD",
                 file_name,
                 sep = "/")
-  # Check if exists
+  # Check if file exists
   if (!file.exists(path)) stop(paste0("File '", path, "' does not exist."))
   # Read data
-  data <- read_file(path, row)
-
+  data <- read_file(path)
+  # Add ticker
+  data <- fill_ticker(data)
+  # Filter for ticker
+  if (!is.null(ticker)) data <- data[data$ticker == ticker, ]
+  # Filter for row
+  if (!is.null(row)) {
+    # Filter
+    data <- data[data$X1 == row, ]
+    # Get names, select relevant columns, rename
+    names <- get_names(row)
+    data <- data[, c(seq_along(a), ncol(data))]
+    colnames(data) <- c(names, "<TICKER>")
+  }
+  # return
   return(data)
 }
+
+
+
