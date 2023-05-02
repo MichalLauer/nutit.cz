@@ -32,7 +32,7 @@ read_day <- function(date, ticker, row, root_dir = "E:") {
     data <- data[data$X1 == row, ]
     # Get names, select relevant columns, rename
     names <- get_names(row)
-    data <- data[, c(seq_along(a), ncol(data))]
+    data <- data[, c(seq_along(names), ncol(data))]
     colnames(data) <- c(names, "<TICKER>")
   }
   # return

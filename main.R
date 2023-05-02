@@ -1,10 +1,14 @@
-# Read functions
+# Read all functions
 sapply(list.files("R", full.names = T), source)
-# Setup parralel computing
+# Setup parallel computing
 future::plan(strategy = future::multicore,
              workers = future::availableCores() - 1)
-library(tictoc)
-tic()
-x <- timeseries(from = "2020-09-01", to = "2020-09-04", ticker = "0AQ03")
-toc()
-
+# Get data
+data <- timeseries(from = "2020-09-01",
+                   to = "2020-09-04",
+                   ticker = "BZTF21",
+                   row = "Q"
+                   )
+# Save as csv
+data |>
+  write.csv("out3.csv", row.names = F)

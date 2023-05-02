@@ -6,7 +6,7 @@ read_file <- function(file) {
   # Personal restrictions for my slow computer. For production, use:
   # - nm <- Inf
   # - base_skip <- 0
-  nm <- 1000
+  nm <- 200000
   base_skip <- 0
   # Read file
   # Suppress non-important warning

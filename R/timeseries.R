@@ -1,7 +1,7 @@
 #' Get a time series for a given date range, ticker and row.
 #'
 #' @param from First date
-#' @param to Last date. If not provided, only first date is extracted
+#' @param to Last date. If not provided, only one day (the 'from' date) is extracted
 #' @param ticker - Ticker to get. If NULL, no filtering based on ticker is performed
 #' @param row - Row ID to filter on. If NULL, no filtering based on row is performed
 timeseries <- function(from, to = from, ticker = NULL, row = NULL) {
