@@ -1,4 +1,4 @@
-read_day <- function(date, row, root_dir = "F:") {
+read_day <- function(date, row, root_dir = "E:") {
   # File to read
   file_name <- paste0("PLUSTICK_FUTURES_686_", format(date, "%Y%m%d"), ".txt.gz")
   # Build path
