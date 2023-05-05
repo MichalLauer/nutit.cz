@@ -11,5 +11,9 @@ clean_q <- function(data) {
                   "<ASK.PRICE>", "<ASK.SIZE>")]
   # NA omitting
   data <- data[complete.cases(data), ]
+  # To number
+  data$`<TAS.SEQ>` <- as.integer(data$`<TAS.SEQ>`)
+  data$`<ASK.PRICE>` <- as.double(data$`<ASK.PRICE>`)
+  data$`<ASK.SIZE>` <- as.integer(data$`<ASK.SIZE>`)
   return(data)
 }

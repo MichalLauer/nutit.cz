@@ -6,8 +6,8 @@ read_file <- function(file) {
   # Personal restrictions for my slow computer. For production, use:
   # - nm <- Inf
   # - base_skip <- 0
-  base_skip <- 0
-  nm <- base_skip+200000
+  base_skip <- 5000000
+  nm <- 5000000
   # Read file
   # Suppress non-important warning
   data <- vroom::vroom(file = file, delim = "|", col_names = F,
