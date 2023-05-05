@@ -14,7 +14,7 @@ fill_ticker <- function(data) {
   # Join parts
   data$ticker <- ifelse(data$X1 == "H",
                         yes = paste0(data$p1, data$p2, data$p3),
-                        no = NA)
+                        no = NA_character_)
   # Fill NA
   data <- tidyr::fill(data, ticker)
   # Remove temp columns
