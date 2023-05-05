@@ -25,10 +25,10 @@ read_day <- function(date, ticker, row, root_dir = "E:") {
   # Add ticker
   data <- fill_ticker(data)
   # Filter for ticker
-  if (!is.null(ticker) & sum(!is.na(data$ticker)) != 0) {
+  if (!is.null(ticker)) {
     pattern <- paste0("^", ticker)
     data <- data[stringr::str_detect(string = data$ticker,
-                                     pattern = pattern), ]
+                                     pattern = pattern) & !is.na(data$ticker), ]
   }
   # Filter for row
   if (!is.null(row)) {
