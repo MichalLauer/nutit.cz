@@ -335,6 +335,13 @@
       ],
       "Hash": "a85c767b55f0bf9b7ad16c6d7baee5bb"
     },
+    "rstudioapi": {
+      "Package": "rstudioapi",
+      "Version": "0.14",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "690bd2acc42a9166ce34845884459320"
+    },
     "stringi": {
       "Package": "stringi",
       "Version": "1.7.12",
