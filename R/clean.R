@@ -8,7 +8,7 @@ clean_q <- function(data) {
   data$`<ACTIVITY.DATETIME>` <- as.POSIXct(as.numeric(data$`<ACTIVITY.DATETIME>`))
   # Selecting
   data <- data[,c("<TYPE>", "<TICKER>", "<TAS.SEQ>", "<ACTIVITY.DATETIME>",
-                  "<ASK.PRICE>", "<ASK.SIZE>")]
+                  "<ASK.PRICE>", "<ASK.SIZE>", "<BID.PRICE>", "<BID.SIZE>")]
   # NA omitting
   data <- data[complete.cases(data), ]
   # To number
